@@ -27,14 +27,12 @@ def get_pkg_info(pkg_name):
         response = requests.get(url)
     except RequestException as e:
         logger.warn(str(e))
-        print(str(e))
         return None
     
     try:
         return response.json()
     except (TypeError, ValueError) as e:
         logger.warn(str(e))
-        print(str(e))
         return None
 
 def get_pkg_versions(pkg_name):
