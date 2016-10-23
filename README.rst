@@ -8,6 +8,9 @@ reqcheck
 .. image:: https://travis-ci.org/jaleskovec/reqcheck.svg?branch=master
     :target: https://travis-ci.org/jaleskovec/reqcheck
 
+.. image:: https://coveralls.io/repos/github/jaleskovec/reqcheck/badge.svg
+    :target: https://coveralls.io/github/jaleskovec/reqcheck
+
 Compare installed Python package versions with PyPI. Display the current
 version, latest version and age for each installed package.
 
