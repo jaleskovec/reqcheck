@@ -1,6 +1,13 @@
 reqcheck
 ========
 
+.. image:: https://img.shields.io/pypi/v/reqcheck.svg
+    :target: https://pypi.python.org/pypi/reqcheck
+    :alt: Latest Version
+
+.. image:: https://travis-ci.org/jaleskovec/reqcheck.svg?branch=master
+    :target: https://travis-ci.org/jaleskovec/reqcheck
+
 Compare installed Python package versions with PyPI. Display the current
 version, latest version and age for each installed package.
 
