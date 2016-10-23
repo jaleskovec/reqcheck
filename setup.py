@@ -1,4 +1,11 @@
+import codecs
+import os
 from setuptools import setup, find_packages
+
+HERE = os.path.abspath(os.path.dirname(__file__))
+
+with codecs.open(os.path.join(HERE, 'README.rst'), encoding = 'utf-8') as f:
+    LONG_DESCRIPTION = f.read()
 
 setup(
     name = 'reqcheck',
@@ -12,6 +19,7 @@ setup(
     author = 'Jozef Leskovec',
     author_email = 'jozefleskovec@gmail.com',
     description = 'Compare installed Python package versions with PyPI',
+    long_description = LONG_DESCRIPTION,
     license = 'MIT',
     keywords = 'requirements check compare installed virtualenv venv pypi package packages version versions',
     classifiers = [
