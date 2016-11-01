@@ -4,13 +4,15 @@ import argparse
 from datetime import datetime
 import logging
 import os
-from pkg_resources import parse_version
+from pkg_resources import get_distribution, parse_version
 import requests
 from requests.exceptions import RequestException
 import six
 import subprocess
 import sys
 import tabulate
+
+__version__ = get_distribution('reqcheck').version
 
 PYPI_PKG_JSON_URL = 'https://pypi.python.org/pypi/{pkg_name}/json'
 
@@ -167,13 +169,18 @@ def print_results(results):
     ]
     table = [tuple(r[f[0]] for f in fields) for r in sorted(results, key = lambda r: r['pkg_name'])]
     headers = [f[1] for f in fields]
-    print(tabulate.tabulate(table, headers = headers), end = '')
+    print(tabulate.tabulate(table, headers = headers).strip())
 
 def cmdline(arg_list = None):
     parser = argparse.ArgumentParser('Compare versions of installed packages to latest versions')
+    parser.add_argument('--version', action = 'store_true', help = 'Output reqcheck version')
     parser.add_argument('-v', '--venv', help = 'Path to a virtualenv to check')
-    parser.add_argument('pkg', nargs = '*', help = 'Path to a virtualenv to check')
+    parser.add_argument('pkg', nargs = '*', help = 'Package requirement (eg. reqcheck=={0})'.format(__version__))
     args = parser.parse_args(arg_list)
+    
+    if args.version:
+        print(__version__)
+        return
     
     if args.venv:
         pkgs_str = get_venv_pkgs(args.venv)
@@ -184,6 +191,3 @@ def cmdline(arg_list = None):
     
     results = check_pkgs(pkgs_str)
     print_results(results)
-
-if __name__ == '__main__':
-    cmdline()

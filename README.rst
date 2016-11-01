@@ -58,6 +58,12 @@ You can check requirements on the command line:
 
     $ reqcheck requests==2.10.0 mock==2.0.0
 
+Display usage help:
+
+::
+
+    $ reqcheck --help
+
 Contributing
 ------------
 

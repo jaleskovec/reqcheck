@@ -414,7 +414,13 @@ class PrintResultsTest(unittest.TestCase):
     def testPrintsOutputToScreen(self):
         with CapturedIO('stdout') as captured:
             reqcheck.print_results(self.results)
-            self.assertEqual('test_output', captured.read())
+            self.assertEqual('test_output\n', captured.read())
+    
+    def testStripsTabulateOutput(self):
+        self.tabulate_mock.return_value = 'test_output\n\n'
+        with CapturedIO('stdout') as captured:
+            reqcheck.print_results(self.results)
+            self.assertEqual('test_output\n', captured.read())
 
 class CmdlineTest(unittest.TestCase):
     def setUp(self):
@@ -436,12 +442,17 @@ class CmdlineTest(unittest.TestCase):
             self.assertRaises(SystemExit, reqcheck.cmdline, ['-bad', 'param'])
             self.assertTrue(len(captured.read()) > 0)
     
+    def testVersion(self):
+        with CapturedIO('stdout') as captured:
+            reqcheck.cmdline(['--version'])
+            self.assertEqual('{0}\n'.format(reqcheck.__version__), captured.read())
+    
     def testWithPkgsOnCommandLine(self):
         reqcheck.cmdline(['pkg1==1.0.0', 'pkg2==1.0.1'])
         
         self.check_pkgs_mock.assert_called_with('pkg1==1.0.0\npkg2==1.0.1')
     
-    @mock.patch('reqcheck.get_venv_pkgs', )
+    @mock.patch('reqcheck.get_venv_pkgs')
     def testWithVenv(self, get_venv_pkgs_mock):
         pkgs = 'pkg1==1.0.1\npkg2==2.0.1'
         get_venv_pkgs_mock.return_value = pkgs
