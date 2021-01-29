@@ -18,15 +18,13 @@ Example output:
 
 ::
 
-      Package        Current Version    Latest Version    Age
-      -------------  -----------------  ----------------  -------------------------------
-      BeautifulSoup  3.2.0              3.2.1             -1 version (~ 1 year 86 days)
-      funcsigs       1.0.2              1.0.2             latest
-      mock           2.0.0              2.0.0             latest
-      pbr            1.10.0             1.10.0            latest
-      requests       2.9.1              2.11.1            -4 versions (~ 240 days)
-      six            1.10.0             1.10.0            latest
-      wheel          0.24.0             0.30.0a0          -6 versions (~ 2 years 71 days)
+      Package    Current Version    Latest Version    Behind                             Age
+      ---------  -----------------  ----------------  ---------------------------------  -------------------------------
+      certifi    2020.12.5          2020.12.5         latest                             ~ 53 days (2020-12-05)
+      chardet    3.0.4              4.0.0             -1 version (~ 3 years 186 days)    ~ 3 years 235 days (2017-06-08)
+      idna       2.5                3.1               -7 versions (~ 3 years 304 days)   ~ 3 years 328 days (2017-03-07)
+      requests   2.17.3             2.25.1            -15 versions (~ 3 years 201 days)  ~ 3 years 244 days (2017-05-29)
+      urllib3    1.21.1             1.26.3            -22 versions (~ 3 years 270 days)  ~ 3 years 272 days (2017-05-02)
 
 Installation
 ------------

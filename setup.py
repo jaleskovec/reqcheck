@@ -9,7 +9,7 @@ with codecs.open(os.path.join(HERE, 'README.rst'), encoding = 'utf-8') as f:
 
 setup(
     name = 'reqcheck',
-    version = '0.1.7',
+    version = '0.1.9',
     packages = find_packages(),
     install_requires = [
         'requests',
@@ -30,9 +30,12 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
     ],
     url = 'https://github.com/jaleskovec/reqcheck',
     entry_points = {

@@ -201,7 +201,6 @@ def cmdline(arg_list = None):
 
     if args.venv:
         pkgs_str = get_venv_pkgs(args.venv)
-        print(pkgs_str)
     elif args.pkg:
         pkgs_str = '\n'.join(args.pkg)
     else:
