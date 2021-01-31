@@ -56,6 +56,12 @@ You can check requirements on the command line:
 
     $ reqcheck requests==2.10.0 mock==2.0.0
 
+Set constraints that will cause the command to exit with an error status (for continuous integration):
+
+::
+
+    $ reqcheck --max-versions-behind 3 --max-days-behind 120 --max-age 365
+
 Display usage help:
 
 ::
