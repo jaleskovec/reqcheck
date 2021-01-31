@@ -40,7 +40,7 @@ setup(
     url = 'https://github.com/jaleskovec/reqcheck',
     entry_points = {
         'console_scripts': [
-            'reqcheck = reqcheck:cmdline',
+            'reqcheck = reqcheck.cmdline:cmdline',
         ],
     },
 )
